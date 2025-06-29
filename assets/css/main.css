@@ -33,7 +33,8 @@ h2 {
   position: relative;
   margin: 16px auto;
   flex-grow: 1;
-  width: 50%;
+  max-height: 100vh;
+  aspect-ratio: 1;
 }
 .myaku__face {
   position: absolute;
