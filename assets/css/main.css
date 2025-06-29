@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: block;
+  width: 100%;
+}
+
+h1 {
+  font-family: "Righteous", cursive;
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 25px;
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+  font-family: "Righteous", cursive;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.myaku {
+  position: relative;
+  margin: 16px auto;
+  flex-grow: 1;
+  width: 50%;
+}
+.myaku__face {
+  position: absolute;
+  width: 60%;
+  aspect-ratio: 4/3;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: -20px -10px 40px rgba(0, 0, 0, 0.5) inset;
+  isolation: isolate;
+}
+.myaku__face--fill {
+  background-color: #3b68b2;
+  background-image: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.3) 2% 3%, #3b68b2 30% 85%);
+}
+.myaku__face__balls {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.myaku__face__ball {
+  position: absolute;
+  aspect-ratio: 1;
+  background-color: #c40018;
+  border-radius: 50%;
+  box-shadow: -5px -5px 20px rgba(0, 0, 0, 0.3) inset, 4px 2px 5px rgba(0, 0, 0, 0.2);
+  background-image: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.5) 2% 3%, #c40018 30% 85%);
+  filter: blur(0px);
+  mix-blend-mode: lighten;
+  overflow: hidden;
+}
+.myaku__face__ball--p1 {
+  left: 43%;
+  top: -28%;
+}
+.myaku__face__ball--p2 {
+  left: 20%;
+  top: -17%;
+}
+.myaku__face__ball--p3 {
+  left: 47%;
+  top: -3%;
+}
+.myaku__face__ball--p4 {
+  left: 62%;
+  top: -8%;
+}
+.myaku__face__ball--p5 {
+  left: 76%;
+  top: 3%;
+}
+.myaku__face__ball--p6 {
+  left: 80%;
+  top: 25%;
+}
+.myaku__face__ball--p7 {
+  left: 72%;
+  top: 58%;
+  transform: rotate(-15deg);
+}
+.myaku__face__ball--p8 {
+  left: 45%;
+  top: 70%;
+}
+.myaku__face__ball--p9 {
+  left: 15%;
+  top: 65%;
+  transform: rotate(-5deg);
+}
+.myaku__face__ball--p10 {
+  left: -10%;
+  top: 35%;
+  transform: rotate(90deg);
+}
+.myaku__face__ball--p11 {
+  left: -8%;
+  top: 15%;
+}
+.myaku__face__ball--p12 {
+  left: 5%;
+  top: -3%;
+  transform: rotate(70deg);
+}
+.myaku__face__ball--20 {
+  width: 20%;
+}
+.myaku__face__ball--25 {
+  width: 25%;
+}
+.myaku__face__ball--30 {
+  width: 30%;
+}
+.myaku__face__ball--35 {
+  width: 35%;
+}
+.myaku__face__ball--e30 {
+  width: 30%;
+  aspect-ratio: 3/5;
+}
+.myaku__face__ball--e35 {
+  width: 35%;
+  aspect-ratio: 4/5;
+}
+.myaku__face__ball--e20 {
+  width: 20%;
+  aspect-ratio: 2/3;
+}
+.myaku__face__ball--e15 {
+  width: 15%;
+  aspect-ratio: 2/3;
+}
+.myaku__face__eye {
+  isolation: isolate;
+  position: absolute;
+  width: 50%;
+  aspect-ratio: 1;
+  z-index: 300;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: #fff;
+  overflow: hidden;
+}
+.myaku__face__eye::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  aspect-ratio: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: #3b68b2;
+}
+.myaku__face__eye--p1 {
+  translate: 0% -25%;
+}
+.myaku__face__eye--p1::after {
+  translate: 10% -25%;
+}
+.myaku__face__eye--p2 {
+  translate: -15% 35%;
+}
+.myaku__face__eye--p2::after {
+  translate: 35% 0%;
+}
+.myaku__face__eye--p3 {
+  translate: 0% -25%;
+}
+.myaku__face__eye--p3::after {
+  translate: 35% 0%;
+}
+.myaku__face__eye--p4 {
+  translate: 25% 35%;
+}
+.myaku__face__eye--p4::after {
+  translate: 25% 25%;
+}
+.myaku__face__eye--p5 {
+  translate: -10% 40%;
+}
+.myaku__face__eye--p5::after {
+  translate: 5% 30%;
+}
+.myaku__face__mouth {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 18%;
+  aspect-ratio: 3/2;
+  translate: -50% -50%;
+  background-color: white;
+  border-bottom-left-radius: 50% 100%;
+  border-bottom-right-radius: 50% 100%;
+  mix-blend-mode: lighten;
+  isolation: revert;
+}
+.myaku__face__mouth::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 30%;
+  content: "";
+  background-color: black;
+  border-bottom-left-radius: 50% 100%;
+  border-bottom-right-radius: 50% 100%;
+}/*# sourceMappingURL=main.css.map */

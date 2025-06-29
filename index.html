@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>EXPO2025 MYAKU-MYAKU</h1>
+      <h2>built with HTML, CSS, JS</h2>
+      <div class="myaku">
+        <div class="myaku__face myaku__face--fill"></div>
+        <div class="myaku__face__mouth"></div>
+        <div class="myaku__face" id="myaku__face">
+          <div class="myaku__balls">
+            <div
+              class="myaku__face__ball myaku__face__ball--p1 myaku__face__ball--25"
+            >
+              <div class="myaku__face__eye myaku__face__eye--p1"></div>
+            </div>
+            <div
+              class="myaku__face__ball myaku__face__ball--p2 myaku__face__ball--30"
+            >
+              <div class="myaku__face__eye myaku__face__eye--p2"></div>
+            </div>
+            <div
+              class="myaku__face__ball myaku__face__ball--p3 myaku__face__ball--20"
+            ></div>
+            <div
+              class="myaku__face__ball myaku__face__ball--p4 myaku__face__ball--20"
+            ></div>
+            <div
+              class="myaku__face__ball myaku__face__ball--p5 myaku__face__ball--25"
+            ></div>
+            <div
+              class="myaku__face__ball myaku__face__ball--p6 myaku__face__ball--35"
+            >
+              <div class="myaku__face__eye myaku__face__eye--p3"></div>
+            </div>
+            <div
+              class="myaku__face__ball myaku__face__ball--p7 myaku__face__ball--e30"
+            ></div>
+            <div
+              class="myaku__face__ball myaku__face__ball--p8 myaku__face__ball--30"
+            ></div>
+            <div
+              class="myaku__face__ball myaku__face__ball--p9 myaku__face__ball--e35"
+            >
+              <div class="myaku__face__eye myaku__face__eye--p4"></div>
+            </div>
+            <div
+              class="myaku__face__ball myaku__face__ball--p10 myaku__face__ball--e35"
+            >
+              <div class="myaku__face__eye myaku__face__eye--p5"></div>
+            </div>
+            <div
+              class="myaku__face__ball myaku__face__ball--p11 myaku__face__ball--25"
+            ></div>
+            <div
+              class="myaku__face__ball myaku__face__ball--p12 myaku__face__ball--e15"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="position: fixed; bottom: 0; left: 50px">
+      <span id="mouseX"></span>, <span id="mouseY"></span>
+    </div>
+    <script>
+      const face = document.getElementById("myaku__face");
+
+      const mxLabel = document.getElementById("mouseX");
+      const myLabel = document.getElementById("mouseY");
+
+      const eyes = document.querySelectorAll(".myaku__face__eye");
+
+      document.addEventListener("mousemove", (e) => {
+        const rect = face.getBoundingClientRect();
+
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        const relX = mouseX - (rect.left + rect.width / 2);
+        const relY = mouseY - (rect.top + rect.height / 2);
+
+        const width = document.documentElement.clientWidth;
+        const height = document.documentElement.clientHeight;
+
+        mxLabel.textContent = relX + ", " + relY;
+        myLabel.textContent = width + ", " + height;
+
+        const moveX = (relX / width) * 20;
+        const moveY = (relY / height) * 20;
+
+        eyes[0].style.translate = `${moveX}% ${-25 + moveY}%`;
+        eyes[1].style.translate = `${-15 + moveX}% ${35 + moveY}%`;
+        eyes[2].style.translate = `${moveX}% ${-25 + moveY}%`;
+        eyes[3].style.translate = `${25 + moveX}% ${35 + moveY}%`;
+        eyes[4].style.translate = `${-10 + moveY}% ${40 - moveX}%`;
+      });
+    </script>
+  </body>
+</html>
