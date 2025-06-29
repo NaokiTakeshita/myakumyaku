@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
   <body>
     <div class="container">
@@ -16,7 +18,7 @@
       <h2>built with HTML, CSS, JS</h2>
       <div class="myaku">
         <div class="myaku__face myaku__face--fill"></div>
-        <div class="myaku__face__mouth"></div>
+        <div class="myaku__face__mouth" id="myaku__face__mouth"></div>
         <div class="myaku__face" id="myaku__face">
           <div class="myaku__balls">
             <div
@@ -79,6 +81,7 @@
       const myLabel = document.getElementById("mouseY");
 
       const eyes = document.querySelectorAll(".myaku__face__eye");
+      const mouth = document.getElementById("myaku__face__mouth");
 
       document.addEventListener("mousemove", (e) => {
         const rect = face.getBoundingClientRect();
@@ -92,8 +95,8 @@
         const width = document.documentElement.clientWidth;
         const height = document.documentElement.clientHeight;
 
-        mxLabel.textContent = relX + ", " + relY;
-        myLabel.textContent = width + ", " + height;
+        // mxLabel.textContent = relX + ", " + relY;
+        // myLabel.textContent = width + ", " + height;
 
         const moveX = (relX / width) * 20;
         const moveY = (relY / height) * 20;
@@ -103,6 +106,17 @@
         eyes[2].style.translate = `${moveX}% ${-25 + moveY}%`;
         eyes[3].style.translate = `${25 + moveX}% ${35 + moveY}%`;
         eyes[4].style.translate = `${-10 + moveY}% ${40 - moveX}%`;
+
+        if (moveX >= 30) {
+          mouth.style.borderBottomLeftRadius = `${30 + 50}% 100%`;
+          mouth.style.borderBottomRightRadius = `${100 - 30 - 50}% 100%`;
+        } else if (moveX <= -30) {
+          mouth.style.borderBottomLeftRadius = `${-30 + 50}% 100%`;
+          mouth.style.borderBottomRightRadius = `${100 + 30 - 50}% 100%`;
+        } else {
+          mouth.style.borderBottomLeftRadius = `${moveX + 50}% 100%`;
+          mouth.style.borderBottomRightRadius = `${100 - moveX - 50}% 100%`;
+        }
       });
     </script>
   </body>
